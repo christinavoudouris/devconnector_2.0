@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const ProfileAbout = ({
   profile: {
@@ -7,15 +7,12 @@ const ProfileAbout = ({
     skills,
     user: { name }
   }
-}) => (
-  <div className='profile-about bg-light p-2'>
-    {bio && (
-      <Fragment>
-        <h2 className='text-primary'>{name.trim().split(' ')[0]}s Bio</h2>
-        <p>{bio}</p>
-        <div className='line' />
-      </Fragment>
-    )}
+}) => <div className='profile-about bg-light p-2'>
+    {bio && <>
+      <h2 className='text-primary'>{name.trim().split(' ')[0]}s Bio</h2>
+      <p>{bio}</p>
+      <div className='line' />
+    </>}
     <h2 className='text-primary'>Skill Set</h2>
     <div className='skills'>
       {skills.map((skill, index) => (
@@ -25,10 +22,7 @@ const ProfileAbout = ({
       ))}
     </div>
   </div>
-);
 
-ProfileAbout.propTypes = {
-  profile: PropTypes.object.isRequired
-};
+ProfileAbout.propTypes = { profile: PropTypes.object.isRequired }
 
-export default ProfileAbout;
+export default ProfileAbout
