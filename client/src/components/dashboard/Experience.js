@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { deleteExperience } from '../../actions/profile'
 import formatDate from '../../utils/formatDate'
+import { Button } from '@bootstrap-styled/v4'
 
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map(exp => <tr key={exp._id}>
@@ -12,12 +13,12 @@ const Experience = ({ experience, deleteExperience }) => {
       {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : 'Now'}
     </td>
     <td>
-      <button
+      <Button
         onClick={() => deleteExperience(exp._id)}
         className="btn btn-danger"
       >
         Delete
-        </button>
+        </Button>
     </td>
   </tr>)
 

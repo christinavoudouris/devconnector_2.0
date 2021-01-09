@@ -1,11 +1,19 @@
 const express = require('express')
-const connectDB = require('./config/db')
+const mongoose = require('mongoose')
 const path = require('path')
+require('dotenv').config({ path: './.env' })
 
 const app = express()
 
 // Connect Database
-connectDB()
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true
+})
+  .then(console.log('MongoDB Connected...'))
+  .catch(err => console.error(err.message))
 
 // Init Middleware
 app.use(express.json())

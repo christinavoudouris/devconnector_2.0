@@ -3,7 +3,6 @@ const router = express.Router()
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config = require('config')
 const { check, validationResult } = require('express-validator')
 const normalize = require('normalize-url')
 
@@ -31,11 +30,7 @@ router.post(
         .json({ errors: [{ msg: 'User already exists' }] });
 
       const avatar = normalize(
-        gravatar.url(email, {
-          s: '200',
-          r: 'pg',
-          d: 'mm'
-        }),
+        gravatar.url(email, { s: '200', r: 'pg', d: 'mm' }),
         { forceHttps: true }
       )
 
@@ -53,7 +48,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWT_SECRET,
         { expiresIn: '5 days' },
         (err, token) => {
           if (err) throw err

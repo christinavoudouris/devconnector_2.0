@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bootstrap-styled/provider": "^2.0.3",
+    "@bootstrap-styled/v4": "^3.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -11,6 +13,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1",
     "uuid": "^8.3.2"
   },
   "scripts": {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { deleteEducation } from '../../actions/profile'
 import formatDate from '../../utils/formatDate'
+import { Button } from '@bootstrap-styled/v4'
 
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => <tr key={edu._id}>
@@ -12,12 +13,12 @@ const Education = ({ education, deleteEducation }) => {
       {formatDate(edu.from)} - {edu.to ? formatDate(edu.to) : 'Now'}
     </td>
     <td>
-      <button
+      <Button
         onClick={() => deleteEducation(edu._id)}
         className="btn btn-danger"
       >
         Delete
-        </button>
+        </Button>
     </td>
   </tr>)
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addPost } from '../../actions/post'
+import { Button } from '@bootstrap-styled/v4'
 
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState('')
@@ -27,7 +28,7 @@ const PostForm = ({ addPost }) => {
         onChange={e => setText(e.target.value)}
         required
       />
-      <input type='submit' className='btn btn-dark my-1' value='Submit' />
+      <Button type='submit' className='btn btn-dark' value='Submit'>Submit</Button>
     </form>
   </div>
 }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import formatDate from '../../utils/formatDate'
 import { deleteComment } from '../../actions/post'
+import { Button } from '@bootstrap-styled/v4'
 
 const CommentItem = ({
   postId,
@@ -19,13 +20,12 @@ const CommentItem = ({
       <p className="my-1">{text}</p>
       <p className="post-date">Posted on {formatDate(date)}</p>
       {!auth.loading && user === auth.user._id && (
-        <button
+        <Button
           onClick={() => deleteComment(postId, _id)}
-          type="button"
           className="btn btn-danger"
         >
           <i className="fas fa-times" />
-        </button>
+        </Button>
       )}
     </div>
   </div>
